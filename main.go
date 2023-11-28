@@ -1,7 +1,16 @@
-package cfapp
+package main
 
-import "fmt"
+import (
+	"cfapp/routes"
+
+	"github.com/gofiber/fiber/v2"
+)
 
 func main() {
-	fmt.Println("Hello Cloudflare")
+
+	app := fiber.New()
+
+	routes.AppRoutes(app)
+
+	app.Listen(":4343")
 }
